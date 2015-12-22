@@ -49,6 +49,7 @@ public class MovieListFragment extends Fragment {
                 Context context = getActivity();
                 Movie movie = adapter.getItem(position);
                 Intent detailIntent = new Intent(context, MovieDetailActivity.class);
+                detailIntent.putExtra("movie", movie);
                 startActivity(detailIntent);
             }
         });
