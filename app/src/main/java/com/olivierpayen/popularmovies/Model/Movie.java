@@ -46,6 +46,15 @@ public class Movie implements Parcelable {
         }
     }
 
+    public String getBackdropUrl() {
+        if (backdropPath == null) {
+            return null;
+        }
+        else {
+            return BASE_IMG_URL + "w185" + backdropPath;
+        }
+    }
+
     protected Movie(Parcel in) {
         byte adultVal = in.readByte();
         adult = adultVal == 0x02 ? null : adultVal != 0x00;
