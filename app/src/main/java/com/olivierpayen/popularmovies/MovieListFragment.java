@@ -1,11 +1,14 @@
 package com.olivierpayen.popularmovies;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.olivierpayen.popularmovies.api.TheMovieDbClient;
@@ -40,6 +43,15 @@ public class MovieListFragment extends Fragment {
         adapter = new MovieAdapter(getContext(), movies);
         GridView gridView = (GridView) view.findViewById(R.id.movie_list_gridview);
         gridView.setAdapter(adapter);
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(final AdapterView<?> parent, final View view, final int position, final long id) {
+                Context context = getActivity();
+                Movie movie = adapter.getItem(position);
+                Intent detailIntent = new Intent(context, MovieDetailActivity.class);
+                startActivity(detailIntent);
+            }
+        });
 
         TheMovieDbInterface service = new TheMovieDbClient()
                 .getApiService();
