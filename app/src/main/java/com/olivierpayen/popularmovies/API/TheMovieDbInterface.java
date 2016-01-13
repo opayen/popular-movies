@@ -8,5 +8,5 @@ import retrofit.http.Query;
 
 public interface TheMovieDbInterface {
     @GET("discover/movie")
-    Call<MovieResponse> listMovies();
+    Call<MovieResponse> listMovies(@Query("sort_by") String sortBy);
 }
