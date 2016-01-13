@@ -48,7 +48,7 @@ public class MovieListFragment extends Fragment {
             public void onItemClick(final AdapterView<?> parent, final View view, final int position, final long id) {
                 Context context = getActivity();
                 Movie movie = adapter.getItem(position);
-                Intent detailIntent = new Intent(context, MovieDetailActivity.class);
+                Intent detailIntent = new Intent(context, MovieDetailsActivity.class);
                 detailIntent.putExtra("movie", movie);
                 startActivity(detailIntent);
             }

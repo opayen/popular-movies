@@ -40,18 +40,24 @@ public class Movie implements Parcelable {
     public String getPosterUrl() {
         if (posterPath == null) {
             return null;
-        }
-        else {
+        } else {
             return BASE_IMG_URL + "w185" + posterPath;
+        }
+    }
+
+    public String getMovieYear() {
+        if (releaseDate == null || releaseDate.length() < 4) {
+            return "";
+        } else {
+            return releaseDate.substring(0, 4);
         }
     }
 
     public String getBackdropUrl() {
         if (backdropPath == null) {
             return null;
-        }
-        else {
-            return BASE_IMG_URL + "w185" + backdropPath;
+        } else {
+            return BASE_IMG_URL + "w500" + backdropPath;
         }
     }
 
@@ -147,4 +153,5 @@ public class Movie implements Parcelable {
             return new Movie[size];
         }
     };
+
 }
